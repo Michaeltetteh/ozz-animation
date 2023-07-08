@@ -78,6 +78,12 @@ else()
   # Enable extra level of warning
   #add_compile_options(-Wextra)
 
+  # disable deprecation warning
+  check_cxx_compiler_flag("-Wno-deprecated-declarations" W_DISABLE_DEPRECATION_ERRORS)
+  if(W_DISABLE_DEPRECATION_ERRORS)
+    add_compile_options(-Wno-deprecated-declarations)
+  endif()
+
   # Set warning as error
   add_compile_options(-Werror)
 
